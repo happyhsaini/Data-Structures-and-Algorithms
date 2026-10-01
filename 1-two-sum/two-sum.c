@@ -1,16 +1,15 @@
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
-    for (int i = 0; i < numsSize; i++) {
-        for (int j = i + 1; j < numsSize; j++) {
-            if (nums[j] == target - nums[i]) {
-                int* result = malloc(sizeof(int) * 2);
-                result[0] = i;
-                result[1] = j;
-                *returnSize = 2;
-                return result;
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int n=numbers.size();
+        unordered_map<int, int> mp;
+        for(int i=0;i<n;i++){
+            int need=target-numbers[i];
+            if(mp.find(need) != mp.end()){
+                return {mp[need]+1,i+1};
             }
+            mp[numbers[i]]=i;
         }
+        return {};
     }
-    // Return an empty array if no solution is found
-    *returnSize = 0;
-    return malloc(sizeof(int) * 0);
-}
+};
