@@ -9,11 +9,6 @@ public:
             }else{
                 right=mid;
             }
-            // if(nums[left]<nums[right]){
-            //     right--;
-            // }else{
-            //     left++;
-            // }
         }
         return nums[left];
     }
